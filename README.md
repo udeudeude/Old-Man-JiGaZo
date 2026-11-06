@@ -4,6 +4,10 @@ A modern, self-contained, offline-capable browser companion for the **2010 Hasbr
 
 **Open the app:** https://udeudeude.github.io/Old-Man-JiGaZo/
 
+**Versioned link (if Safari displays an older cached page):** https://udeudeude.github.io/Old-Man-JiGaZo/workshop-v2.html
+
+The versioned link serves the same up-to-date application through a new file URL, bypassing cached copies of the original homepage. In Safari, Command + Option + R also reloads the page from its origin.
+
 ## Make one puzzle
 
 1. Select **One puzzle** and choose a shape.
