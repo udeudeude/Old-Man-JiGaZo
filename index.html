@@ -70,7 +70,7 @@ function clamp(v,a,b){return Math.max(a,Math.min(b,v));}
 function slider(id){return Number($(id).value);}
 function updateSliderLabels(){ $('zoomVal').textContent=slider('zoom')+'%';$('contrastVal').textContent=slider('contrast')+'%';$('brightnessVal').textContent=String(slider('brightness'));$('detailVal').textContent=slider('detail')+'%';$('balanceVal').textContent=slider('balance')+'% balanced'; }
 function markChanged(){if(state.indices){status('Settings changed. Select “Create my puzzle” to update the map.');state.modified=true;}}
-function pictureBox(z=slider('zoom')/100){if(!state.photo)return null,scale=Math.max(PHOTO_W/state.photo.width,PHOTO_H/state.photo.height)*z;const w=scale*state.photo.width,h=scale*state.photo.height;
+function pictureBox(z=slider('zoom')/100){if(!state.photo)return null;const scale=Math.max(PHOTO_W/state.photo.width,PHOTO_H/state.photo.height)*z;const w=scale*state.photo.width,h=scale*state.photo.height;
  const left=clamp((PHOTO_W-w)/2+state.panX, PHOTO_W-w, 0);const top=clamp((PHOTO_H-h)/2+state.panY, PHOTO_H-h,0);state.panX=left-(PHOTO_W-w)/2;state.panY=top-(PHOTO_H-h)/2;
  return {w,h,left,top};}
 function renderPhoto(){
