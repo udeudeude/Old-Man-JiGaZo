@@ -4,7 +4,7 @@ An independent, offline-capable modern browser companion for the original **2010
 
 **Open the app:** https://udeudeude.github.io/Old-Man-JiGaZo/
 
-**Versioned link (bypasses older cached versions):** https://udeudeude.github.io/Old-Man-JiGaZo/workshop-v3.html
+**Versioned link (bypasses older cached versions):** https://udeudeude.github.io/Old-Man-JiGaZo/workshop-v4.html
 
 ## Designed around the finished puzzle
 
@@ -13,7 +13,7 @@ The updated workshop works **automatically**. Choose or change a photo, puzzle s
 - The photograph editor displays an **actual black-and-white crop**, not a color photograph.
 - The main result opens in **Mosaic preview**, with the appearance created by the original shaded physical pieces.
 - Choose **Assembly map** to see the original **color-coded identifying icons and their exact rotations**, needed to assemble the physical puzzle. The colors on this map are intentional identification aids, not a color mosaic.
-- **Shape & size** and **One / Two puzzles** live at the top of the page.
+- **One / Two puzzles** and **Shape & size** controls live at the top. In Two Puzzles mode, independent Shape & size selectors for **Puzzle A** and **Puzzle B** appear together. Invalid combinations exceeding 300 pieces are disabled.
 - Contrast, brightness, edge detail, and tonal distribution are tucked under **Refine tones and detail**.
 - Import a photo by selecting **Choose photograph** or dropping a photo on the editor; drag to reposition, pinch/scroll to zoom, or use the zoom slider and +/- buttons.
 - **Print assembly map(s)**, save icon maps and mosaic images, and save/reopen complete projects (including legacy project files).
@@ -28,7 +28,7 @@ In two-puzzle mode, select **Puzzle A** and **Puzzle B**, choose different photo
 
 ## Offline use
 
-Download the single HTML file (`index.html` or `workshop-v3.html`) and open it in a browser. All assets are embedded, including the authentic pieces and original example. There is no required build process.
+Download the single HTML file (`index.html` or `workshop-v4.html`) and open it in a browser. All assets are embedded, including the authentic pieces and original example. There is no required build process.
 
 ## Authentic original puzzle data
 
@@ -38,7 +38,7 @@ For new photographs, an independently implemented constrained optimization assig
 
 ## Publication
 
-GitHub Pages serves the app from `index.html` on `main`. The latest versioned URL is `workshop-v3.html`; older `workshop-v2.html` requests redirect to v3.
+GitHub Pages serves the app from `index.html` on `main`. The latest versioned URL is `workshop-v4.html`; older `workshop-v2.html` and `workshop-v3.html` requests redirect to v4.
 
 ## Testing
 
