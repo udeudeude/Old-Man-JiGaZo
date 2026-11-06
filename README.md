@@ -8,7 +8,7 @@ A modern, self-contained browser companion for the **Hasbro Ji Ga Zo 300-piece p
 
 1. Open the app in a current browser on a phone, tablet, or computer.
 2. Start with the original Mona Lisa sample, or choose a photograph.
-3. Adjust the crop and image settings, then select **Create my puzzle**.
+3. Adjust the crop and image settings, then select **Create my puzzle**. Use the photo's **+ / −** buttons, zoom slider (up to 800%), mouse-wheel scrolling, or pinch gestures to zoom. Drag to reframe. Zooming keeps the selected point under your cursor or fingers.
 4. Use the **symbol map** to arrange your 300 physical pieces, rotating each one to match its printed icon.
 5. Print the map, save PNG maps/previews, or save a project to continue later.
 
