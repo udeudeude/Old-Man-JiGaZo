@@ -251,8 +251,9 @@ async function build(automatic=false){
  }
  catch(error){console.error(error);status('Could not generate puzzle: '+error.message);}
  finally{buildRunning=false;$('buildBtn').disabled=false;$('previewUpdating').hidden=true;if(state.dirty&&hasAllPhotos()&&version!==changes)scheduleBuild(250);}}
-async function loadSample(){stopAutomaticBuild();loadingSample=true;state.mode=1;state.active=0;const p=state.puzzles[0];p.layout='portrait';p.panX=p.panY=0;
+async function loadOriginalExample(){stopAutomaticBuild();loadingSample=true;state.mode=1;state.active=0;const p=state.puzzles[0];p.layout='portrait';p.panX=p.panY=0;
  p.contrast=100;p.brightness=0;p.detail=100;state.balance=85;await setPhoto(p,SAMPLE_PHOTO);p.solution={indices:[...ORIGINAL_MONA.indices],rots:[...ORIGINAL_MONA.rotations]};state.puzzles[1].solution=null;state.dirty=false;showActive();setView('mosaic');loadingSample=false;status('Original Mona Lisa example · authentic 300-piece map.','good');}
+async function useSampleAsPhoto(){const p=current();try{await setPhoto(p,SAMPLE_PHOTO);clearSolutions();showActive();}catch(error){status('Could not load sample photograph: '+error.message);}}
 function isValidSolution(sol,p){return !!sol&&Array.isArray(sol.indices)&&Array.isArray(sol.rots)&&sol.indices.length===count(p)&&sol.rots.length===count(p)&&sol.indices.every(n=>Number.isInteger(n)&&n>=0&&n<PIECES)&&sol.rots.every(n=>Number.isInteger(n)&&n>=0&&n<=3)&&new Set(sol.indices).size===count(p);}
 function saveProject(){if(!state.puzzles.some(p=>p.solution))return;const project={format:'jigazo-modern-project',version:2,mode:state.mode,active:state.active,balance:state.balance,
  puzzles:state.puzzles.map(p=>({layout:p.layout,source:p.source,panX:p.panX,panY:p.panY,zoom:p.zoom,contrast:p.contrast,brightness:p.brightness,detail:p.detail,solution:p.solution}))};
@@ -291,7 +292,7 @@ function setupEvents(){
  for(const id of ['editA','outA'])$(id).onclick=()=>switchActive(0);
  for(const id of ['editB','outB'])$(id).onclick=()=>switchActive(1);
  $('uploadBtn').onclick=()=>$('photoInput').click();$('photoInput').onchange=e=>{if(e.target.files[0])importPhoto(e.target.files[0]);e.target.value='';};
- $('sampleBtn').onclick=loadSample;$('buildBtn').onclick=()=>build(false);
+ $('sampleBtn').onclick=useSampleAsPhoto;$('buildBtn').onclick=()=>build(false);
  $('zoomInBtn').onclick=()=>setCropZoom(current().zoom*1.25);$('zoomOutBtn').onclick=()=>setCropZoom(current().zoom/1.25);
  $('zoom').oninput=e=>setCropZoom(e.target.value);
  for(const id of ['contrast','brightness','detail'])$(id).oninput=e=>{current()[id]=Number(e.target.value);updateSettingsUI();renderPhoto();markChanged();};
@@ -311,7 +312,7 @@ async function init(){setupEvents();showActive();try{await Promise.all([
  new Promise((resolve,reject)=>{tileImg.onload=resolve;tileImg.onerror=reject;tileImg.src=TILE_ATLAS;}),
  new Promise((resolve,reject)=>{symImg.onload=resolve;symImg.onerror=reject;symImg.src=SYMBOL_ATLAS;})]);
  if(tileImg.width!==450||tileImg.height!==600||symImg.width!==420||symImg.height!==560)throw Error('Authentic piece library dimensions do not match.');
- buildTileFeatures();atlasReady=true;await loadSample();
+ buildTileFeatures();atlasReady=true;await loadOriginalExample();
  }catch(error){console.error(error);status('Could not load original puzzle artwork: '+error.message);}}
 init();
 </script></body></html>
